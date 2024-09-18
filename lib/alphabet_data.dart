@@ -85,12 +85,12 @@ const List<Map<String, String>> vowels = [
   {
     'letter': 'A',
     'audio': 'a',
-    'example1': 'Avion',
-    'ipa1': 'avjɔ̃',
-    'translation1': 'Pesawat',
-    'example2': 'Arbre',
-    'ipa2': 'aʁbʁ',
-    'translation2': 'Pesawat'
+    'example1': 'Maman',
+    'ipa1': '[ma.mɑ̃]',
+    'translation1': 'Mama',
+    'example2': 'Papa',
+    'ipa2': '[pa.pa]',
+    'translation2': 'Papa'
   },
   {
     'letter': 'E',

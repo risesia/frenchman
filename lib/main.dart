@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
                 color: Color(0xff050608)), // Set text color for subtitle text
           ),
         ),
-        home: MyHomePage(),
+        home: MyHomePage(), // Set MyHomePage as the default page
       ),
     );
   }
@@ -112,12 +112,14 @@ class _MyHomePageState extends State<MyHomePage> {
   String getPageTitle() {
     switch (selectedIndex) {
       case 0:
-        return 'Konsonan';
+        return 'Home'; // New Home Page title
       case 1:
-        return 'Semi-konsonan';
+        return 'Konsonan';
       case 2:
-        return 'Vokal Oral';
+        return 'Semi-konsonan';
       case 3:
+        return 'Vokal Oral';
+      case 4:
         return 'Vokal Sengau';
       default:
         return 'French Alphabet Dictionary'; // Default title
@@ -129,15 +131,18 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = AlphabetListPage(category: 'Consonants'); // Consonants
+        page = HomePage(); // New Home Page
         break;
       case 1:
-        page = AlphabetListPage(category: 'Semi-Consonants'); // Semi-consonants
+        page = AlphabetListPage(category: 'Consonants'); // Consonants
         break;
       case 2:
-        page = AlphabetListPage(category: 'Vowels'); // Vowels
+        page = AlphabetListPage(category: 'Semi-Consonants'); // Semi-consonants
         break;
       case 3:
+        page = AlphabetListPage(category: 'Vowels'); // Vowels
+        break;
+      case 4:
         page = AlphabetListPage(category: 'Vokal Oral'); // Vokal Oral
         break;
       default:
@@ -174,10 +179,10 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Color(0xFF007ae2), Color.fromRGBO(0, 194, 226, 1)],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight)),
+                  gradient: LinearGradient(colors: [
+                Color(0xFF007ae2),
+                Color.fromRGBO(0, 194, 226, 1)
+              ], begin: Alignment.centerLeft, end: Alignment.centerRight)),
               child: Text(
                 'Panduan Pelafalan Niveau A1',
                 style: TextStyle(
@@ -187,18 +192,18 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.text_fields),
-              title: Text('Konsonan'),
+              leading: Icon(Icons.home),
+              title: Text('Home'),
               onTap: () {
                 setState(() {
-                  selectedIndex = 0;
+                  selectedIndex = 0; // Navigate to Home
                 });
                 Navigator.pop(context); // Close the drawer
               },
             ),
             ListTile(
               leading: Icon(Icons.text_fields),
-              title: Text('Semi-Konsonan'),
+              title: Text('Konsonan'),
               onTap: () {
                 setState(() {
                   selectedIndex = 1;
@@ -208,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               leading: Icon(Icons.text_fields),
-              title: Text('Vokal Oral'),
+              title: Text('Semi-Konsonan'),
               onTap: () {
                 setState(() {
                   selectedIndex = 2;
@@ -218,10 +223,20 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               leading: Icon(Icons.text_fields),
-              title: Text('Vokal Sengau'),
+              title: Text('Vokal Oral'),
               onTap: () {
                 setState(() {
                   selectedIndex = 3;
+                });
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.text_fields),
+              title: Text('Vokal Sengau'),
+              onTap: () {
+                setState(() {
+                  selectedIndex = 4;
                 });
                 Navigator.pop(context); // Close the drawer
               },
@@ -230,6 +245,40 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: page, // Display the current page
+    );
+  }
+}
+
+// New Home Page Widget
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Bonjour',
+              style: TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Panduan Pelafalan Niveau A1',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -306,7 +355,8 @@ class AlphabetListPage extends StatelessWidget {
 
 class AlphabetDetailPage extends StatefulWidget {
   final String letter;
-  final String audioUrl; // Change this to match the argument in navigateToAlphabetPage
+  final String
+      audioUrl; // Change this to match the argument in navigateToAlphabetPage
   final String example1;
   final String ipa1;
   final String translation1;
@@ -382,7 +432,8 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
             IconButton(
               icon: Icon(Icons.play_circle, size: 50),
               onPressed: () {
-                _speak(widget.audioUrl); // Play the pronunciation using audioUrl
+                _speak(
+                    widget.audioUrl); // Play the pronunciation using audioUrl
               },
             ),
             SizedBox(height: 30),
@@ -392,7 +443,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
               ipaText: widget.ipa1,
               translationText: widget.translation1,
               playExample: () => _speak(widget.example1),
-              exampleTitle: 'Example 1',
+              exampleTitle: 'Contoh 1',
             ),
             SizedBox(height: 20),
             // Example 2 section
@@ -401,7 +452,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
               ipaText: widget.ipa2,
               translationText: widget.translation2,
               playExample: () => _speak(widget.example2),
-              exampleTitle: 'Example 2',
+              exampleTitle: 'Contoh 2',
             ),
           ],
         ),
@@ -410,6 +461,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
   }
 
   // Widget to build the example section
+// Widget to build the example section with a card and dynamic icon
   Widget _buildExampleSection({
     required String exampleText,
     required String ipaText,
@@ -417,37 +469,91 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
     required VoidCallback playExample,
     required String exampleTitle,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '$exampleTitle',
-          style: Theme.of(context).textTheme.labelLarge,
+    // Map the example word to an icon (add more examples as needed)
+    IconData getExampleIcon(String word) {
+      switch (word.toLowerCase()) {
+        case 'avion':
+          return Icons.airplanemode_active; // Plane icon for "avion"
+        case 'chat':
+          return Icons.pets; // Pet icon for "chat" (cat)
+        case 'maison':
+          return Icons.house; // House icon for "maison" (house)
+        case 'maman':
+          return Icons.elderly_woman;
+        case 'papa':
+          return Icons.elderly;
+        default:
+          return Icons.volume_up; // Default icon for unknown examples
+      }
+    }
+
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 300, // Set the maximum width
+          minWidth: 250, // Optionally, set a minimum width
         ),
-      Row(
-        children: [
-          Text(
-              '$exampleText',
-              style: Theme.of(context).textTheme.headlineLarge,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // Rounded corners
+          ),
+          elevation: 4, // Elevation for shadow effect
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    '$exampleTitle',
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Icon related to the example
+                    Icon(
+                      getExampleIcon(exampleText),
+                      size: 75,
+                      color: Colors.blue, // Set the icon color
+                    ),
+                    SizedBox(width: 10), // Space between icon and text
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                '$exampleText',
+                                style: Theme.of(context).textTheme.headlineLarge,
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.play_circle),
+                                onPressed: playExample,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            '$ipaText',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          Text(
+                            '$translationText',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            IconButton(
-              icon: Icon(Icons.play_circle),
-              onPressed: playExample,
-            ),
-        ],
+          ),
+        ),
       ),
-        // SizedBox(height: 10),
-        Text(
-          '$ipaText',
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        // SizedBox(height: 10),
-        // SizedBox(height: 10),
-        Text(
-          'Terjemahan: $translationText',
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-      ],
     );
   }
 
@@ -457,7 +563,6 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
     super.dispose();
   }
 }
-
 
 class QRScannerPage extends StatefulWidget {
   @override
