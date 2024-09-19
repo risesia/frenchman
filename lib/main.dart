@@ -3,6 +3,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'alphabet_data.dart';
+import 'liaisons_data.dart';
+import 'basic_word_data.dart';
 
 void main() {
   runApp(MyApp());
@@ -57,26 +59,22 @@ class MyApp extends StatelessWidget {
 class MyAppState extends ChangeNotifier {
   void navigateToAlphabetPage(
       BuildContext context, String letter, String category) {
-    var alphabetData;
+    Map<String, String> alphabetData;
 
     // Use category to determine which list to search
     switch (category) {
       case 'Consonants':
         alphabetData =
             consonants.firstWhere((element) => element['letter'] == letter);
-        break;
       case 'Semi-Consonants':
         alphabetData =
             semiConsonants.firstWhere((element) => element['letter'] == letter);
-        break;
       case 'Vowels':
         alphabetData =
             vowels.firstWhere((element) => element['letter'] == letter);
-        break;
       case 'Vokal Oral':
         alphabetData =
             vokalOral.firstWhere((element) => element['letter'] == letter);
-        break;
       default:
         throw UnimplementedError('No data for category $category');
     }
@@ -108,11 +106,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
 
-  // Method to get the current page title based on the selected index
   String getPageTitle() {
     switch (selectedIndex) {
       case 0:
-        return 'Home'; // New Home Page title
+        return 'Home';
       case 1:
         return 'Konsonan';
       case 2:
@@ -121,8 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
         return 'Vokal Oral';
       case 4:
         return 'Vokal Sengau';
+      case 5:
+        return 'Penyeretan Bunyi'; // New page title for Penyeretan Bunyi
+      case 6:
+        return 'Kalimat Dasar';
       default:
-        return 'French Alphabet Dictionary'; // Default title
+        return 'French Alphabet Dictionary';
     }
   }
 
@@ -131,19 +132,25 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = HomePage(); // New Home Page
+        page = HomePage();
         break;
       case 1:
-        page = AlphabetListPage(category: 'Consonants'); // Consonants
+        page = AlphabetListPage(category: 'Consonants');
         break;
       case 2:
-        page = AlphabetListPage(category: 'Semi-Consonants'); // Semi-consonants
+        page = AlphabetListPage(category: 'Semi-Consonants');
         break;
       case 3:
-        page = AlphabetListPage(category: 'Vowels'); // Vowels
+        page = AlphabetListPage(category: 'Vowels');
         break;
       case 4:
-        page = AlphabetListPage(category: 'Vokal Oral'); // Vokal Oral
+        page = AlphabetListPage(category: 'Vokal Oral');
+        break;
+      case 5:
+        page = PenyeretanListPage(); // Show the new Penyeretan Bunyi page
+        break;
+      case 6:
+        page = KalimatDasarListPage();
         break;
       default:
         throw UnimplementedError('No widget for index $selectedIndex');
@@ -173,7 +180,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       drawer: Drawer(
-        // Hamburger menu for navigation
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -196,9 +202,9 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('Home'),
               onTap: () {
                 setState(() {
-                  selectedIndex = 0; // Navigate to Home
+                  selectedIndex = 0;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -208,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   selectedIndex = 1;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -218,7 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   selectedIndex = 2;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -228,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   selectedIndex = 3;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -238,13 +244,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   selectedIndex = 4;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.merge_type),
+              title:
+                  Text('Penyeretan Bunyi'), // Add Penyeretan Bunyi to the menu
+              onTap: () {
+                setState(() {
+                  selectedIndex =
+                      5; // Set the index to 5 to navigate to the new page
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.language),
+              title: Text('Kalimat Dasar'),
+              onTap: () {
+                setState(() {
+                  selectedIndex =
+                      6; // Set the index to 5 to navigate to the new page
+                });
+                Navigator.pop(context);
               },
             ),
           ],
         ),
       ),
-      body: page, // Display the current page
+      body: page,
     );
   }
 }
@@ -290,21 +319,17 @@ class AlphabetListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var alphabetList;
+    List<Map<String, String>> alphabetList;
 
     switch (category) {
       case 'Consonants':
         alphabetList = consonants;
-        break;
       case 'Semi-Consonants':
         alphabetList = semiConsonants;
-        break;
       case 'Vowels':
         alphabetList = vowels;
-        break;
       case 'Vokal Oral':
         alphabetList = vokalOral;
-        break;
       default:
         throw UnimplementedError('No list for category $category');
     }
@@ -505,7 +530,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
               children: [
                 Center(
                   child: Text(
-                    '$exampleTitle',
+                    exampleTitle,
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
@@ -527,8 +552,9 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
                           Row(
                             children: [
                               Text(
-                                '$exampleText',
-                                style: Theme.of(context).textTheme.headlineLarge,
+                                exampleText,
+                                style:
+                                    Theme.of(context).textTheme.headlineLarge,
                               ),
                               IconButton(
                                 icon: Icon(Icons.play_circle),
@@ -537,11 +563,11 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
                             ],
                           ),
                           Text(
-                            '$ipaText',
+                            ipaText,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                           Text(
-                            '$translationText',
+                            translationText,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
@@ -561,6 +587,288 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
   void dispose() {
     flutterTts.stop();
     super.dispose();
+  }
+}
+
+class PenyeretanListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: categorizedLiaisons.length,
+      itemBuilder: (context, index) {
+        String category = categorizedLiaisons.keys.elementAt(index);
+        List<Map<String, String>> liaisons = categorizedLiaisons[category]!;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Category Title
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                category,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+              ),
+            ),
+            // List of liaisons under the category
+            ListView.builder(
+              shrinkWrap: true, // Ensure it works within the ListView
+              physics: NeverScrollableScrollPhysics(), // Avoid nested scrolling
+              itemCount: liaisons.length,
+              itemBuilder: (context, liaisonIndex) {
+                var liaison = liaisons[liaisonIndex];
+                return GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LiaisonDetailPage(
+                        liaison: liaison['liaison']!,
+                        category: liaison['category']!,
+                        description: liaison['description']!,
+                        example: liaison['example']!,
+                        pronunciation: liaison['pronunciation']!,
+                        translation: liaison['translation']!,
+                      ),
+                    ),
+                  ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 0, 122, 227),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        liaison['liaison']!,
+                        style:
+                            Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+// Liaison Detail Page
+class LiaisonDetailPage extends StatelessWidget {
+  final String liaison;
+  final String category;
+  final String description;
+  final String example;
+  final String pronunciation;
+  final String translation;
+
+  // Constructor with required parameters
+  LiaisonDetailPage({
+    required this.liaison,
+    required this.category,
+    required this.description,
+    required this.example,
+    required this.pronunciation,
+    required this.translation,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(liaison),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Category: $category',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Description:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(description),
+            SizedBox(height: 16),
+            Text(
+              'Example:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(example),
+            SizedBox(height: 16),
+            Text(
+              'Pronunciation:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(pronunciation),
+            SizedBox(height: 16),
+            Text(
+              'Translation:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(translation),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class KalimatDasarListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: categorizedBasicWords.length,
+      itemBuilder: (context, index) {
+        String theme = categorizedBasicWords.keys.elementAt(index);
+        List<Map<String, String>> words = categorizedBasicWords[theme]!;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Theme Title
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                theme,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+              ),
+            ),
+            // List of words under the theme
+            ListView.builder(
+              shrinkWrap: true, // Ensure it works within the ListView
+              physics: NeverScrollableScrollPhysics(), // Avoid nested scrolling
+              itemCount: words.length,
+              itemBuilder: (context, wordIndex) {
+                var word = words[wordIndex];
+                return GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WordDetailPage(
+                        word: word['word']!,
+                        theme: theme,
+                        pronunciation: word['pronunciation']!,
+                        translation: word['translation']!,
+                      ),
+                    ),
+                  ),
+                  child: Card(
+                    color: const Color.fromARGB(255, 0, 122, 227),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        word['word']!,
+                        style:
+                            Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class WordDetailPage extends StatelessWidget {
+  final String word;
+  final String theme;
+  final String pronunciation;
+  final String translation;
+
+  WordDetailPage({
+    required this.word,
+    required this.theme,
+    required this.pronunciation,
+    required this.translation,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(word),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Text(
+                word,
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 48,
+                    ),
+              ),
+            ),
+            SizedBox(height: 24),
+            Text(
+              'Tema: $theme',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Pengucapan:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(pronunciation),
+            SizedBox(height: 16),
+            Text(
+              'Terjemahan:',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            Text(translation),
+          ],
+        ),
+      ),
+    );
   }
 }
 
