@@ -1,5 +1,5 @@
 name: frenchman
-description: A new Flutter project.
+description: Panduan Pelafalan Niveau A1
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -24,5 +24,14 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+  flutter_launcher_icons: ^0.10.0
+
 flutter:
   uses-material-design: true
+  assets:
+  - assets/icon/app_icon.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"

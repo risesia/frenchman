@@ -54,7 +54,7 @@ class AlphabetListPage extends StatelessWidget {
                 child: Text(
                   alphabet['letter']!,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                        fontSize: 48,
+                        fontSize: 85,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 255, 255, 255), // Text color
                       ),

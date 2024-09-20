@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'French Alphabet Dictionary',
+        title: 'C\'est facilens',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme:
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 4:
         return 'Vokal Sengau';
       case 5:
-        return 'Penyeretan Bunyi'; // New page title for Penyeretan Bunyi
+        return 'Penyeretan Bunyi';
       case 6:
         return 'Kalimat Dasar';
       default:
@@ -135,7 +135,13 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = HomePage();
+        page = HomePage(
+        onNavigate: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+      );
       case 1:
         page = AlphabetListPage(category: 'Consonants');
       case 2:
@@ -181,16 +187,34 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                Color(0xFF007ae2),
-                Color.fromRGBO(0, 194, 226, 1)
-              ], begin: Alignment.centerLeft, end: Alignment.centerRight)),
-              child: Text(
-                'Panduan Pelafalan Niveau A1',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+                gradient: LinearGradient(
+                  colors: [Color(0xFF007ae2), Color.fromRGBO(0, 194, 226, 1)],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                 ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "C'est Facilens", // App name
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 34, // You can adjust the font size
+                      fontWeight:
+                          FontWeight.bold, // Optional: makes the text bold
+                    ),
+                  ),
+                  // SizedBox(height: 2), // Add some spacing between the app name and the subtitle
+                  Text(
+                    'Panduan Pelafalan Niveau A1',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -244,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.merge_type),
+              leading: Icon(Icons.text_rotation_none),
               title:
                   Text('Penyeretan Bunyi'), // Add Penyeretan Bunyi to the menu
               onTap: () {
@@ -256,12 +280,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.language),
+              leading: Icon(Icons.textsms),
               title: Text('Kalimat Dasar'),
               onTap: () {
                 setState(() {
                   selectedIndex =
-                      6; // Set the index to 5 to navigate to the new page
+                      6; // Set the index to 6 to navigate to the new page
                 });
                 Navigator.pop(context);
               },

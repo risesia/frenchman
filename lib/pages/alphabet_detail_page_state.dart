@@ -32,7 +32,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
             ),
           ),
         ),
-        title: Text('Details: ${widget.letter}'),
+        title: Text(widget.letter),
         backgroundColor: Color(0xFF007ae2), // Custom color or gradient
       ),
       body: Padding(
@@ -41,6 +41,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Letter display at the top
+            SizedBox(height: 30),
             Text(
               widget.letter,
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
@@ -50,7 +51,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
                   ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20),
+            // SizedBox(height: 5),
             // Play button for pronunciation
             IconButton(
               icon: Icon(Icons.play_circle, size: 50),
@@ -59,7 +60,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
                     widget.audioUrl); // Play the pronunciation using audioUrl
               },
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 50),
             // Example 1 section
             _buildExampleSection(
               exampleText: widget.example1,
