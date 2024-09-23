@@ -67,6 +67,9 @@ flutter:
   - assets/examples/gaz.svg
   - assets/examples/zoo.svg
   - assets/examples/journal.svg
+  - assets/examples/jogging.svg
+  - assets/examples/camping.svg
+  - assets/examples/montage.svg
 
 flutter_icons:
   android: true

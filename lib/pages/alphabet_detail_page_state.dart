@@ -282,6 +282,30 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
           width: 75,
           height: 75,
         );
+      case 'jogging':
+        return SvgPicture.asset(
+          'assets/examples/jogging.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'camping':
+        return SvgPicture.asset(
+          'assets/examples/camping.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'gagner':
+        return SvgPicture.asset(
+          'assets/examples/tout.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'montagne':
+        return SvgPicture.asset(
+          'assets/examples/montage.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
       default:
         return SvgPicture.asset(
           'assets/examples/1F34C.svg', // Path to your SVG file
