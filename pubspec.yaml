@@ -70,6 +70,10 @@ flutter:
   - assets/examples/jogging.svg
   - assets/examples/camping.svg
   - assets/examples/montage.svg
+  - assets/examples/travail.svg
+  - assets/examples/bois.svg
+  - assets/examples/huile.svg
+  - assets/examples/lune.svg
 
 flutter_icons:
   android: true
