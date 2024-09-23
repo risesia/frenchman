@@ -17,6 +17,7 @@ dependencies:
   provider: ^6.0.0
   qr_code_scanner: ^1.0.1
   audioplayers: ^6.1.0
+  flutter_svg: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -26,10 +27,46 @@ dev_dependencies:
 
   flutter_launcher_icons: ^0.10.0
 
+
 flutter:
   uses-material-design: true
   assets:
   - assets/icon/app_icon.png
+  - assets/E205.svg
+  - assets/1F469-200D-1F3A8.svg
+  - assets/1F950.svg
+  - assets/1F968.svg
+  - assets/1F956.svg
+  - assets/1F490.svg
+  - assets/1F337.svg
+  - assets/examples/1F34C.svg
+  - assets/examples/1F6F6.svg
+  - assets/examples/radio.svg
+  - assets/examples/dame.svg
+  - assets/examples/famille.svg
+  - assets/examples/garçon.svg
+  - assets/examples/goût.svg
+  - assets/examples/carte.svg
+  - assets/examples/coucou.svg
+  - assets/examples/chat.svg
+  - assets/examples/chou.svg
+  - assets/examples/lampe.svg
+  - assets/examples/long.svg
+  - assets/examples/mais.svg
+  - assets/examples/neige.svg
+  - assets/examples/nez.svg
+  - assets/examples/papa.svg
+  - assets/examples/pomme.svg
+  - assets/examples/rire.svg
+  - assets/examples/rouge.svg
+  - assets/examples/sun.svg
+  - assets/examples/table.svg
+  - assets/examples/tout.svg
+  - assets/examples/vive.svg
+  - assets/examples/vase.svg
+  - assets/examples/gaz.svg
+  - assets/examples/zoo.svg
+  - assets/examples/journal.svg
 
 flutter_icons:
   android: true

@@ -82,7 +82,7 @@ class MyAppState extends ChangeNotifier {
         throw UnimplementedError('No data for category $category');
     }
 
-    // Navigate to the detail page with the alphabet data
+// Navigate to the detail page with the alphabet data
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -95,6 +95,8 @@ class MyAppState extends ChangeNotifier {
           example2: alphabetData['example2']!,
           ipa2: alphabetData['ipa2']!,
           translation2: alphabetData['translation2']!,
+          boldLetters: (alphabetData['boldLetters'] ?? '')
+              .split(','), // Handle null value safely
         ),
       ),
     );
@@ -136,12 +138,12 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (selectedIndex) {
       case 0:
         page = HomePage(
-        onNavigate: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-      );
+          onNavigate: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+        );
       case 1:
         page = AlphabetListPage(category: 'Consonants');
       case 2:
@@ -280,7 +282,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.textsms),
+              leading: Icon(Icons.textsms_outlined),
               title: Text('Kalimat Dasar'),
               onTap: () {
                 setState(() {

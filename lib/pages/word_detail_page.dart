@@ -18,6 +18,15 @@ class WordDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(word),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color.fromRGBO(227, 251, 255, 1), Color(0xFFFBFDFF)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
