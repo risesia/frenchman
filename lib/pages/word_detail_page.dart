@@ -49,7 +49,7 @@ class WordDetailPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Pengucapan:',
+              'Pelafalan:',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),

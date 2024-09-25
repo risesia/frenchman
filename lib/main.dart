@@ -89,14 +89,13 @@ class MyAppState extends ChangeNotifier {
         builder: (context) => AlphabetDetailPage(
           letter: alphabetData['letter']!,
           audioUrl: alphabetData['audio']!,
-          example1: alphabetData['example1']!,
-          ipa1: alphabetData['ipa1']!,
-          translation1: alphabetData['translation1']!,
-          example2: alphabetData['example2']!,
-          ipa2: alphabetData['ipa2']!,
-          translation2: alphabetData['translation2']!,
-          boldLetters: (alphabetData['boldLetters'] ?? '')
-              .split(','), // Handle null value safely
+          example1: alphabetData['example1'] ?? '',
+          ipa1: alphabetData['ipa1'] ?? '',
+          translation1: alphabetData['translation1'] ?? '',
+          example2: alphabetData['example2'] ?? '',
+          ipa2: alphabetData['ipa2'] ?? '',
+          translation2: alphabetData['translation2'] ?? '',
+          boldLetters: (alphabetData['boldLetters'] ?? '').split(','),
         ),
       ),
     );
@@ -149,9 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         page = AlphabetListPage(category: 'Semi-Consonants');
       case 3:
-        page = AlphabetListPage(category: 'Vowels');
-      case 4:
         page = AlphabetListPage(category: 'Vokal Oral');
+      case 4:
+        page = AlphabetListPage(category: 'Vowels');
       case 5:
         page = PenyeretanListPage(); // Show the new Penyeretan Bunyi page
       case 6:

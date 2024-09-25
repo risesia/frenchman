@@ -34,14 +34,13 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
           ),
         ),
         title: Text(widget.letter),
-        backgroundColor: Color(0xFF007ae2), // Custom color or gradient
+        backgroundColor: Color(0xFF007ae2),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Letter display at the top
             SizedBox(height: 30),
             Text(
               widget.letter,
@@ -52,35 +51,34 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
                   ),
               textAlign: TextAlign.center,
             ),
-            // SizedBox(height: 5),
-            // Play button for pronunciation
             IconButton(
               icon: Icon(Icons.play_circle, size: 50),
               onPressed: () {
-                _speak(
-                    widget.audioUrl); // Play the pronunciation using audioUrl
+                _speak(widget.audioUrl);
               },
             ),
             SizedBox(height: 50),
-            // Example 1 section
+            // Show the first example
             _buildExampleSection(
               exampleText: widget.example1,
               ipaText: widget.ipa1,
               translationText: widget.translation1,
               playExample: () => _speak(widget.example1),
               exampleTitle: 'Contoh 1',
-              boldLetters: widget.boldLetters, // Pass boldLetter here
-            ),
-            SizedBox(height: 20),
-            // Example 2 section
-            _buildExampleSection(
-              exampleText: widget.example2,
-              ipaText: widget.ipa2,
-              translationText: widget.translation2,
-              playExample: () => _speak(widget.example2),
-              exampleTitle: 'Contoh 2',
               boldLetters: widget.boldLetters,
             ),
+            // Conditionally show the second example if it's not empty
+            if (widget.example2.isNotEmpty) ...[
+              SizedBox(height: 20),
+              _buildExampleSection(
+                exampleText: widget.example2,
+                ipaText: widget.ipa2,
+                translationText: widget.translation2,
+                playExample: () => _speak(widget.example2),
+                exampleTitle: 'Contoh 2',
+                boldLetters: widget.boldLetters,
+              ),
+            ],
           ],
         ),
       ),
@@ -333,6 +331,108 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
       case 'lune':
         return SvgPicture.asset(
           'assets/examples/lune.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'pâte':
+        return SvgPicture.asset(
+          'assets/examples/pâte.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'été':
+        return SvgPicture.asset(
+          'assets/examples/été.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'faisait':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'si':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'gens':
+        return SvgPicture.asset(
+          'assets/examples/dame.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'eau':
+        return SvgPicture.asset(
+          'assets/examples/eau.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'porte':
+        return SvgPicture.asset(
+          'assets/examples/porte.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'peur':
+        return SvgPicture.asset(
+          'assets/examples/peur.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'sœur':
+        return SvgPicture.asset(
+          'assets/examples/dame.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'le':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'grand':
+        return SvgPicture.asset(
+          'assets/examples/montage.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'pain':
+        return SvgPicture.asset(
+          'assets/examples/pain.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'vin':
+        return SvgPicture.asset(
+          'assets/examples/vin.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'nom':
+        return SvgPicture.asset(
+          'assets/examples/nom.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'champs':
+        return SvgPicture.asset(
+          'assets/examples/champs.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'brun':
+        return SvgPicture.asset(
+          'assets/examples/brun.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'un':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
           width: 75,
           height: 75,
         );

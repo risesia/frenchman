@@ -74,6 +74,16 @@ flutter:
   - assets/examples/bois.svg
   - assets/examples/huile.svg
   - assets/examples/lune.svg
+  - assets/examples/pâte.svg
+  - assets/examples/été.svg
+  - assets/examples/eau.svg
+  - assets/examples/porte.svg
+  - assets/examples/peur.svg
+  - assets/examples/pain.svg
+  - assets/examples/vin.svg
+  - assets/examples/nom.svg
+  - assets/examples/champs.svg
+  - assets/examples/brun.svg
 
 flutter_icons:
   android: true

@@ -10,7 +10,8 @@ class PenyeretanListPage extends StatelessWidget {
       itemCount: categorizedLiaisons.length,
       itemBuilder: (context, index) {
         String category = categorizedLiaisons.keys.elementAt(index);
-        List<Map<String, String>> liaisons = categorizedLiaisons[category]!;
+        List<Map<String, dynamic>> liaisons =
+            categorizedLiaisons[category]!; // Updated to accept dynamic Map
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,18 +36,16 @@ class PenyeretanListPage extends StatelessWidget {
                 var liaison = liaisons[liaisonIndex];
                 return GestureDetector(
                   onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LiaisonDetailPage(
-                        liaison: liaison['liaison']!,
-                        category: liaison['category']!,
-                        description: liaison['description']!,
-                        example: liaison['example']!,
-                        pronunciation: liaison['pronunciation']!,
-                        translation: liaison['translation']!,
-                      ),
-                    ),
-                  ),
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LiaisonDetailPage(
+                          liaison: liaison['liaison']!,
+                          suara: liaison['suara']!,
+                          description: liaison['description']!,
+                          examples: List<Map<String, String>>.from(liaison[
+                              'examples']), // Ensure 'examples' is a List<Map<String, String>>
+                        ),
+                      )),
                   child: Card(
                     color: const Color.fromARGB(255, 0, 122, 227),
                     elevation: 4,
@@ -60,7 +59,7 @@ class PenyeretanListPage extends StatelessWidget {
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
                                   fontSize: 32,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white,
                                 ),
                         textAlign: TextAlign.center,

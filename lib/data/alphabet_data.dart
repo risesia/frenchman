@@ -201,25 +201,49 @@ const List<Map<String, String>> consonants = [
 
 const List<Map<String, String>> vowels = [
   {
-    'letter': 'A',
-    'audio': 'a',
-    'example1': 'Maman',
-    'ipa1': '[ma.mɑ̃]',
-    'translation1': 'Mama',
-    'example2': 'Papa',
-    'ipa2': '[pa.pa]',
-    'translation2': 'Papa'
+    "letter": "ɑ̃",
+    "audio": "an",
+    "example1": "gens",
+    "ipa1": "[ʒɑ̃]",
+    "translation1": "orang",
+    "example2": "grand",
+    "ipa2": "[gRɑ̃]",
+    "translation2": "besar",
+    'boldLetters': 'n,an',
   },
   {
-    'letter': 'E',
-    'audio': 'e',
-    'example1': 'École',
-    'ipa1': 'ekɔl',
-    'translation1': 'Halo',
-    'example2': 'Eau',
-    'ipa2': 'o',
-    'translation2': 'Sekolah'
+    "letter": "ɛ̃",
+    "audio": "ain",
+    "example1": "pain",
+    "ipa1": "[pɛ̃]",
+    "translation1": "roti",
+    "example2": "vin",
+    "ipa2": "[vɛ̃]",
+    "translation2": "anggur",
+    'boldLetters': 'ain,in',
   },
+  {
+    "letter": "ɔ̃",
+    "audio": "on",
+    "example1": "champs",
+    "ipa1": "[ʃɔ̃]",
+    "translation1": "bidang",
+    "example2": "nom",
+    "ipa2": "[nɔ̃]",
+    "translation2": "nama belakang",
+    'boldLetters': 'am,om',
+  },
+  {
+    "letter": "œ̃",
+    "audio": "un",
+    "example1": "brun",
+    "ipa1": "[bʁœ̃]",
+    "translation1": "warna coklat",
+    "example2": "un",
+    "ipa2": "[œ̃]",
+    "translation2": "sebuah",
+    'boldLetters': 'un',
+  }
 ];
 
 const List<Map<String, String>> semiConsonants = [
@@ -260,23 +284,109 @@ const List<Map<String, String>> semiConsonants = [
 
 const List<Map<String, String>> vokalOral = [
   {
-    'letter': 'ɑ̃',
-    'audio': 'ɑ̃',
-    'example1': 'gens',
-    'ipa1': 'ʒɑ̃',
-    'translation1': 'orang',
-    'example2': 'grand',
-    'ipa2': 'gRɑ̃',
-    'translation2': 'besar'
+    "letter": "a",
+    "audio": "a",
+    "example1": "maman",
+    "ipa1": "[ma.mɑ̃]",
+    "translation1": "mama",
+    "example2": "papa",
+    "ipa2": "[pa.pa]",
+    "translation2": "papa",
+    "boldLetters": "a"
   },
   {
-    'letter': 'ɛ̃',
-    'audio': 'ɛ̃',
-    'example1': 'pain',
-    'ipa1': 'pɛ̃',
-    'translation1': 'roti',
-    'example2': 'vin',
-    'ipa2': 'vɛ̃',
-    'translation2': 'anggur'
+    "letter": "ɑ",
+    "audio": "a",
+    "example1": "pâte",
+    "ipa1": "[pɑt]",
+    "translation1": "pasta",
+    "boldLetters": "â"
   },
+  {
+    "letter": "e",
+    "audio": "e",
+    "example1": "été",
+    "ipa1": "[e.te]",
+    "translation1": "musim panas",
+    "example2": "nez",
+    "ipa2": "[ne]",
+    "translation2": "hidung",
+    "boldLetters": "e,é"
+  },
+  {
+    "letter": "ɛ",
+    "audio": "ɛ",
+    "example1": "faisait",
+    "ipa1": "[fəzɛ]",
+    "translation1": "melakukan",
+    "example2": "mais",
+    "ipa2": "[mɛ]",
+    "translation2": "tetapi",
+    "boldLetters": "e"
+  },
+  {
+    "letter": "i",
+    "audio": "i",
+    "example1": "si",
+    "ipa1": "[si]",
+    "translation1": "jika",
+    "boldLetters": "i"
+  },
+  {
+    "letter": "o",
+    "audio": "o",
+    "example1": "eau",
+    "ipa1": "[o]",
+    "translation1": "air",
+    "boldLetters": "eau"
+  },
+  {
+    "letter": "ɔ",
+    "audio": "or",
+    "example1": "porte",
+    "ipa1": "[pɔʁt]",
+    "translation1": "pintu",
+    "boldLetters": "o"
+  },
+  {
+    "letter": "u",
+    "audio": "u",
+    "example1": "tout",
+    "ipa1": "[tu]",
+    "translation1": "semua",
+    "boldLetters": "u"
+  },
+  {
+    "letter": "y",
+    "audio": "y",
+    "example1": "lune",
+    "ipa1": "[lyn]",
+    "translation1": "bulan",
+    "boldLetters": "u"
+  },
+  {
+    "letter": "ø",
+    "audio": "eu",
+    "example1": "peur",
+    "ipa1": "[pøʁ]",
+    "translation1": "ketakutan",
+    "boldLetters": "eu"
+  },
+  {
+    "letter": "œ",
+    "audio": "œ",
+    "example1": "sœur",
+    "ipa1": "[sœʁ]",
+    "translation1": "saudara perempuan",
+    "boldLetters": "œ"
+  },
+  {
+    "letter": "ə",
+    "audio": "ə",
+    "example1": "le",
+    "ipa1": "[lə]",
+    "translation1": "itu",
+    "boldLetters": "e"
+  }
+
 ];
