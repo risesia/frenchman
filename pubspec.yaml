@@ -84,6 +84,12 @@ flutter:
   - assets/examples/nom.svg
   - assets/examples/champs.svg
   - assets/examples/brun.svg
+  - assets/examples/on arrive.svg
+  - assets/examples/six heures.svg
+  - assets/examples/deux heures.svg
+  - assets/examples/trois étudiants.svg
+  - assets/examples/petite école.svg
+  - assets/examples/grand homme.svg
 
 flutter_icons:
   android: true

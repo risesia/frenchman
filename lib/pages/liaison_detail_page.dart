@@ -79,30 +79,30 @@ class _LiaisonDetailPageState extends State<LiaisonDetailPage> {
                 Text(
                   widget.suara,
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                 ),
               ],
             ),
             SizedBox(height: 20),
             // Display description section
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Deskripsi',
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  widget.description,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   children: [
+            //     Text(
+            //       'Ciri-ciri',
+            //       style: Theme.of(context).textTheme.labelLarge,
+            //     ),
+            //     SizedBox(height: 10),
+            //     Text(
+            //       widget.description,
+            //       style: Theme.of(context).textTheme.bodyLarge,
+            //       textAlign: TextAlign.center,
+            //     ),
+            //   ],
+            // ),
             SizedBox(height: 30),
             // Display examples, pronunciation, and translation in cards
             for (var example in widget.examples)
@@ -218,10 +218,12 @@ class _LiaisonDetailPageState extends State<LiaisonDetailPage> {
     required BuildContext context,
   }) {
     List<TextSpan> spans = [];
+    bool boldApplied = false; // Flag to track if bold letter has been applied
+
     for (int i = 0; i < pronunciation.length; i++) {
       final String char = pronunciation[i];
 
-      if (boldLetters.contains(char)) {
+      if (boldLetters.contains(char) && !boldApplied) {
         spans.add(
           TextSpan(
             text: char,
@@ -231,6 +233,7 @@ class _LiaisonDetailPageState extends State<LiaisonDetailPage> {
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
         );
+        boldApplied = true; // Set flag to true after applying bold
       } else {
         spans.add(
           TextSpan(
@@ -240,6 +243,7 @@ class _LiaisonDetailPageState extends State<LiaisonDetailPage> {
         );
       }
     }
+
     return spans;
   }
 
@@ -252,9 +256,93 @@ class _LiaisonDetailPageState extends State<LiaisonDetailPage> {
           width: 75,
           height: 75,
         );
-      case 'bateau':
+      case 'on arrive':
         return SvgPicture.asset(
-          'assets/examples/1F6F6.svg', // Path to your SVG file
+          'assets/examples/on arrive.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'bon ami':
+        return SvgPicture.asset(
+          'assets/examples/garçon.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'deux heures':
+        return SvgPicture.asset(
+          'assets/examples/deux heures.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'six heures':
+        return SvgPicture.asset(
+          'assets/examples/six heures.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'les enfants':
+        return SvgPicture.asset(
+          'assets/examples/garçon.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'trois étudiants':
+        return SvgPicture.asset(
+          'assets/examples/trois étudiants.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'vous êtes':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'nous avons':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'ils ont':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'petit enfant':
+        return SvgPicture.asset(
+          'assets/examples/garçon.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'petite école':
+        return SvgPicture.asset(
+          'assets/examples/petite école.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'comment allez-vous?':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'grand homme':
+        return SvgPicture.asset(
+          'assets/examples/grand homme.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'quand il ...':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
+          width: 75,
+          height: 75,
+        );
+      case 'quand elle ...':
+        return SvgPicture.asset(
+          'assets/examples/mais.svg', // Path to your SVG file
           width: 75,
           height: 75,
         );

@@ -17,15 +17,13 @@ class KalimatDasarListPage extends StatelessWidget {
           children: [
             // Theme Title
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Center(
-                child: Text(
-                  theme,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                ),
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 6),
+              child: Text(
+                theme,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
               ),
             ),
             // List of words under the theme
@@ -59,7 +57,7 @@ class KalimatDasarListPage extends StatelessWidget {
                         word['word']!,
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  fontSize: 28,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.normal,
                                   color: Colors.white,
                                 ),

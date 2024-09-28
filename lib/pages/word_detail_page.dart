@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
-class WordDetailPage extends StatelessWidget {
+class WordDetailPage extends StatefulWidget {
   final String word;
   final String theme;
   final String pronunciation;
@@ -14,10 +15,27 @@ class WordDetailPage extends StatelessWidget {
   });
 
   @override
+  WordDetailPageState createState() => WordDetailPageState();
+}
+
+class WordDetailPageState extends State<WordDetailPage> {
+  late FlutterTts flutterTts;
+
+  @override
+  void initState() {
+    super.initState();
+    flutterTts = FlutterTts();
+  }
+
+  Future<void> _speak() async {
+    await flutterTts.speak(widget.word);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(word),
+        title: Text(widget.word),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -28,42 +46,60 @@ class WordDetailPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Text(
-                word,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // Vertical centering
+            crossAxisAlignment:
+                CrossAxisAlignment.center, // Horizontal centering
+            children: [
+              Text(
+                widget.word,
+                textAlign: TextAlign.center, // Align the text center
                 style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 48,
+                      color: Colors.blue,
                     ),
               ),
-            ),
-            SizedBox(height: 24),
-            Text(
-              'Tema: $theme',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Pelafalan:',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-            Text(pronunciation),
-            SizedBox(height: 16),
-            Text(
-              'Terjemahan:',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-            Text(translation),
-          ],
+              IconButton(
+                icon: Icon(Icons.play_circle, size: 40),
+                onPressed: _speak,
+              ),
+              SizedBox(height: 30),
+              Text(
+                'Pelafalan',
+                textAlign: TextAlign.center, // Align the label center
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Text(
+                widget.pronunciation,
+                textAlign: TextAlign.center, // Align the pronunciation center
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 25,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                    ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Terjemahan',
+                textAlign: TextAlign.center, // Align the label center
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Text(
+                widget.translation,
+                textAlign: TextAlign.center, // Align the translation center
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 25,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                    ),
+              ),
+              SizedBox(height: 100),
+            ],
+          ),
         ),
       ),
     );
