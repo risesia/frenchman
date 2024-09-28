@@ -132,34 +132,53 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    Widget page;
-    switch (selectedIndex) {
-      case 0:
-        page = HomePage(
-          onNavigate: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-        );
-      case 1:
-        page = AlphabetListPage(category: 'Consonants');
-      case 2:
-        page = AlphabetListPage(category: 'Semi-Consonants');
-      case 3:
-        page = AlphabetListPage(category: 'Vokal Oral');
-      case 4:
-        page = AlphabetListPage(category: 'Vowels');
-      case 5:
-        page = PenyeretanListPage(); // Show the new Penyeretan Bunyi page
-      case 6:
-        page = KalimatDasarListPage();
-      default:
-        throw UnimplementedError('No widget for index $selectedIndex');
-    }
+Widget build(BuildContext context) {
+  Widget page;
+  switch (selectedIndex) {
+    case 0:
+      page = HomePage(
+        onNavigate: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+      );
+      break;
+    case 1:
+      page = AlphabetListPage(category: 'Consonants');
+      break;
+    case 2:
+      page = AlphabetListPage(category: 'Semi-Consonants');
+      break;
+    case 3:
+      page = AlphabetListPage(category: 'Vokal Oral');
+      break;
+    case 4:
+      page = AlphabetListPage(category: 'Vowels');
+      break;
+    case 5:
+      page = PenyeretanListPage(); // Show the new Penyeretan Bunyi page
+      break;
+    case 6:
+      page = KalimatDasarListPage();
+      break;
+    default:
+      throw UnimplementedError('No widget for index $selectedIndex');
+  }
 
-    return Scaffold(
+  return WillPopScope(
+    onWillPop: () async {
+      if (selectedIndex != 0) {
+        // If not on the homepage, go to the homepage
+        setState(() {
+          selectedIndex = 0;
+        });
+        return false; // Prevent default back button behavior
+      } else {
+        return true; // Allow the app to close
+      }
+    },
+    child: Scaffold(
       appBar: AppBar(
         elevation: 0,
         flexibleSpace: Container(
@@ -173,13 +192,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         title: Text(getPageTitle()),
         actions: [
-          IconButton(
-            icon: Icon(Icons.qr_code_scanner),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => QRScannerPage()),
-            ),
-          ),
+          // IconButton(
+          //   icon: Icon(Icons.qr_code_scanner),
+          //   onPressed: () => Navigator.push(
+          //     context,
+          //     MaterialPageRoute(builder: (context) => QRScannerPage()),
+          //   ),
+          // ),
         ],
       ),
       drawer: Drawer(
@@ -207,7 +226,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           FontWeight.bold, // Optional: makes the text bold
                     ),
                   ),
-                  // SizedBox(height: 2), // Add some spacing between the app name and the subtitle
                   Text(
                     'Panduan Pelafalan Niveau A1',
                     style: TextStyle(
@@ -274,8 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text('Penyeretan Bunyi'), // Add Penyeretan Bunyi to the menu
               onTap: () {
                 setState(() {
-                  selectedIndex =
-                      5; // Set the index to 5 to navigate to the new page
+                  selectedIndex = 5;
                 });
                 Navigator.pop(context);
               },
@@ -285,8 +302,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('Kalimat Dasar'),
               onTap: () {
                 setState(() {
-                  selectedIndex =
-                      6; // Set the index to 6 to navigate to the new page
+                  selectedIndex = 6;
                 });
                 Navigator.pop(context);
               },
@@ -295,6 +311,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: page,
-    );
-  }
+    ),
+  );
+}
 }
