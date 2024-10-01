@@ -25,6 +25,7 @@ class WordDetailPageState extends State<WordDetailPage> {
   void initState() {
     super.initState();
     flutterTts = FlutterTts();
+    flutterTts.setLanguage('fr-FR'); // Set to French
   }
 
   Future<void> _speak() async {

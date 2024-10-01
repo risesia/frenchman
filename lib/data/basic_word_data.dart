@@ -50,12 +50,12 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
   ],
   "Memberikan Data Pribadi": [
     {
-      "word": "j’ai 17 ans",
+      "word": "j'ai 17 ans",
       "pronunciation": "[ʒe dis sɛtɑ̃]",
       "translation": "saya berusia 17 tahun"
     },
     {
-      "word": "j’aime chanter et danser",
+      "word": "j'aime chanter et danser",
       "pronunciation": "[ʒɛm ʃɑ̃ te e dɑ̃ se]",
       "translation": "saya senang menyanyi dan menari"
     },
@@ -72,12 +72,12 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
     {
       "word": "je suis indonésien",
       "pronunciation": "[ʒə sɥi ɛ̃ dɔ ne zjɛ̃]",
-      "translation": "saya orang indonesia (m)"
+      "translation": "saya orang indonesia (lk)"
     },
     {
       "word": "je suis indonésienne",
       "pronunciation": "[ʒə sɥi ɛ̃ dɔ ne zjɛn]",
-      "translation": "saya orang indonesia (f)"
+      "translation": "saya orang indonesia (pr)"
     },
     {
       "word": "je travaille comme...",

@@ -248,7 +248,7 @@ const List<Map<String, String>> vowels = [
 
 const List<Map<String, String>> semiConsonants = [
   {
-    'letter': 'J',
+    'letter': 'j',
     'audio': 'j',
     'example1': 'famille',
     'ipa1': '[famij]',
@@ -275,10 +275,10 @@ const List<Map<String, String>> semiConsonants = [
     'example1': 'huile',
     'ipa1': '[ɥil]',
     'translation1': 'minyak',
-    'example2': 'lune',
-    'ipa2': '[lyn]',
-    'translation2': 'bulan',
-    'boldLetters': 'hu,un',
+    'example2': 'huit',
+    'ipa2': '[ɥit]',
+    'translation2': 'delapan',
+    'boldLetters': 'hu',
   },
 ];
 
@@ -362,6 +362,9 @@ const List<Map<String, String>> vokalOral = [
     "example1": "lune",
     "ipa1": "[lyn]",
     "translation1": "bulan",
+    "example2": "tu",
+    "ipa2": "[ty]",
+    "translation2": "kamu",
     "boldLetters": "u"
   },
   {

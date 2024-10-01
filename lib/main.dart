@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String getPageTitle() {
     switch (selectedIndex) {
       case 0:
-        return 'Home';
+        return 'Beranda';
       case 1:
         return 'Konsonan';
       case 2:
@@ -238,7 +238,7 @@ Widget build(BuildContext context) {
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text('Beranda'),
               onTap: () {
                 setState(() {
                   selectedIndex = 0;

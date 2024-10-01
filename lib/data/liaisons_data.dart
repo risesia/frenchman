@@ -93,7 +93,7 @@ final Map<String, List<Map<String, dynamic>>> categorizedLiaisons = {
         {
           'example': 'nous avons',
           'pronunciation': '[nu‿z‿a‿vɔ̃]',
-          'translation': 'kami mempunyai...',
+          'translation': 'kami mempunyai ',
         },
       ]
     },
