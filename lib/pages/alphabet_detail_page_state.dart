@@ -2,21 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:frenchman/pages/alphabet_detail_page.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class AlphabetDetailPageState extends State<AlphabetDetailPage> {
   late FlutterTts flutterTts;
+  final AudioPlayer audioPlayer = AudioPlayer();
+
+  // Map of specific words to audio file paths
+  final Map<String, String> specificWordAudioFiles = {
+    'ʃ': 'audio/ʃ.mp3', // Example entry
+    'ŋ': 'audio/ŋ.mp3', // Example entry
+    'œ': 'audio/œ.mp3', // Example entry
+    'ɛ': 'audio/ɛ.mp3', // Example entry
+    'ɥ': 'audio/ɥ.mp3', // Example entry
+    // Add more specific words and file paths as needed
+  };
 
   @override
   void initState() {
     super.initState();
     flutterTts = FlutterTts();
-
-    // Optionally configure the TTS language for French pronunciation
-    flutterTts.setLanguage('fr-FR'); // Set to French
+    flutterTts.setLanguage('fr-FR');
   }
 
   Future<void> _speak(String text) async {
-    await flutterTts.speak(text);
+    if (specificWordAudioFiles.containsKey(text)) {
+      print("Playing audio file for specific word: $text");
+      String audioFilePath = specificWordAudioFiles[text]!;
+
+      // Use AssetSource for assets
+      await audioPlayer.play(AssetSource(audioFilePath));
+    } else {
+      print("Using TTS for: $text");
+      await flutterTts.speak(text);
+    }
+  }
+
+  @override
+  void dispose() {
+    flutterTts.stop();
+    audioPlayer.dispose(); // Dispose of the audio player
+    super.dispose();
   }
 
   @override
@@ -535,12 +561,6 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    flutterTts.stop();
-    super.dispose();
   }
 }
 

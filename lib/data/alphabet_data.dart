@@ -1,6 +1,6 @@
 const List<Map<String, String>> consonants = [
   {
-    'letter': 'B',
+    'letter': 'b',
     'audio': 'b',
     'example1': 'banane',
     'ipa1': '[ba.nan]',
@@ -11,7 +11,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'b',
   },
   {
-    'letter': 'D',
+    'letter': 'd',
     'audio': 'd',
     'example1': 'dame',
     'ipa1': '[dam]',
@@ -22,7 +22,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'd',
   },
   {
-    'letter': 'F',
+    'letter': 'f',
     'audio': 'f',
     'example1': 'famille',
     'ipa1': '[famij]',
@@ -33,7 +33,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'f',
   },
   {
-    'letter': 'G',
+    'letter': 'g',
     'audio': 'g',
     'example1': 'garçon',
     'ipa1': '[gaʁ.sɔ̃]',
@@ -44,7 +44,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'g',
   },
   {
-    'letter': 'K',
+    'letter': 'k',
     'audio': 'k',
     'example1': 'carte',
     'ipa1': '[kaʁt]',
@@ -56,7 +56,7 @@ const List<Map<String, String>> consonants = [
   },
   {
     'letter': 'ʃ',
-    'audio': 'ch',
+    'audio': 'ʃ',
     'example1': 'chat',
     'ipa1': '[ʃa]',
     'translation1': 'kucing',
@@ -66,7 +66,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'ch'
   },
   {
-    'letter': 'L',
+    'letter': 'l',
     'audio': 'l',
     'example1': 'lampe',
     'ipa1': '[lɑ̃p]',
@@ -77,7 +77,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'l',
   },
   {
-    'letter': 'M',
+    'letter': 'm',
     'audio': 'm',
     'example1': 'mais',
     'ipa1': '[mɛ]',
@@ -88,7 +88,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'm',
   },
   {
-    'letter': 'N',
+    'letter': 'n',
     'audio': 'n',
     'example1': 'neige',
     'ipa1': '[nɛʒ]',
@@ -99,7 +99,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'n',
   },
   {
-    'letter': 'P',
+    'letter': 'p',
     'audio': 'p',
     'example1': 'papa',
     'ipa1': '[papa]',
@@ -121,7 +121,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'r',
   },
   {
-    'letter': 'S',
+    'letter': 's',
     'audio': 's',
     'example1': 'face',
     'ipa1': '[fas]',
@@ -132,7 +132,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'ce,s',
   },
   {
-    'letter': 'T',
+    'letter': 't',
     'audio': 't',
     'example1': 'table',
     'ipa1': '[tabl]',
@@ -143,7 +143,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 't',
   },
   {
-    'letter': 'V',
+    'letter': 'v',
     'audio': 'v',
     'example1': 'vase',
     'ipa1': '[vaz]',
@@ -154,7 +154,7 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'v',
   },
   {
-    'letter': 'Z',
+    'letter': 'z',
     'audio': 'z',
     'example1': 'gaz',
     'ipa1': '[gaz]',
@@ -188,7 +188,7 @@ const List<Map<String, String>> consonants = [
   },
   {
     'letter': 'ŋ',
-    'audio': 'ing',
+    'audio': 'ŋ',
     'example1': 'camping',
     'ipa1': '[kɑ̃.piŋ]',
     'translation1': 'berkemah',
@@ -259,7 +259,7 @@ const List<Map<String, String>> semiConsonants = [
     'boldLetters': 'ille,il',
   },
   {
-    'letter': 'W',
+    'letter': 'w',
     'audio': 'w',
     'example1': 'bois',
     'ipa1': '[bwa]',
@@ -271,7 +271,7 @@ const List<Map<String, String>> semiConsonants = [
   },
   {
     'letter': 'ɥ',
-    'audio': 'hu',
+    'audio': 'ɥ',
     'example1': 'huile',
     'ipa1': '[ɥil]',
     'translation1': 'minyak',

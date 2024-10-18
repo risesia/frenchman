@@ -23,6 +23,12 @@ void main() {
 // pengelompokan liaison berdasarkan pertemuan huruf
 // pengelompokan kalimat dasar berdasarkan tema
 
+// TODO:
+// revisi
+// list huruf kapital jadi kecil di list page
+// kalimat dasar -> ... jadi kata contoh, ikutin file terbaru
+// pake suara rekaman untuk suara yang ga sesuai
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'C\'est facilens',
+        title: 'C\'est facile',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme:
@@ -113,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String getPageTitle() {
     switch (selectedIndex) {
       case 0:
-        return 'Beranda';
+        return '';
       case 1:
         return 'Konsonan';
       case 2:
@@ -218,7 +224,7 @@ Widget build(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "C'est Facilens", // App name
+                    "C'est Facile", // App name
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 34, // You can adjust the font size

@@ -60,14 +60,14 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
       "translation": "saya senang menyanyi dan menari"
     },
     {
-      "word": "je m'appelle...",
+      "word": "je m'appelle Nuri",
       "pronunciation": "[ʒə mapɛl]",
-      "translation": "nama saya..."
+      "translation": "nama saya Nuri"
     },
     {
-      "word": "je parle français et...",
-      "pronunciation": "[ʒə paʁl fʁɑ̃sɛ e]",
-      "translation": "saya berbicara bahasa prancis dan..."
+      "word": "je parle français et indonésien",
+      "pronunciation": "[ʒə paʁl fʁɑ̃sɛ e ɛ̃.dɔ.ne.zjɛ̃]",
+      "translation": "saya berbicara bahasa prancis dan Indonesia"
     },
     {
       "word": "je suis indonésien",
@@ -80,51 +80,51 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
       "translation": "saya orang indonesia (pr)"
     },
     {
-      "word": "je travaille comme...",
-      "pronunciation": "[ʒə tʁavaj kɔm]",
-      "translation": "saya bekerja sebagai..."
+      "word": "je travaille dans le tourisme",
+      "pronunciation": "[ʒə tRavaj dɑ̃ lə tu.ʁism]",
+      "translation": "saya bekerja di bidang pariwisata"
     },
     {
-      "word": "je viens de...",
-      "pronunciation": "[ʒə vjɛ̃ də]",
-      "translation": "saya berasal dari..."
+      "word": "je viens de Medan",
+      "pronunciation": "[ʒə vjɛ̃ də mɛdan]",
+      "translation": "saya berasal dari Medan"
     },
     {
       "word": "j’habite à medan",
       "pronunciation": "[ʒa bitame dɑn]",
-      "translation": "saya tinggal di medan"
+      "translation": "saya tinggal di Medan"
     },
   ],
   "Menyatakan Kegemaran": [
     {
-      "word": "j'adore",
-      "pronunciation": "[ʒadɔʁ]",
-      "translation": "saya sangat menyukai..."
+      "word": "j'adore le football",
+      "pronunciation": "[ʒadɔʁ lə futbɔl]",
+      "translation": "saya sangat suka sepak bola"
     },
     {
-      "word": "j'aime...",
-      "pronunciation": "[ʒɛm]",
-      "translation": "saya menyukai..."
+      "word": "j'aime le chocolat",
+      "pronunciation": "[ʒɛm lə ʃɔ.kɔ.la]",
+      "translation": "saya suka coklat"
     },
     {
-      "word": "je déteste...",
-      "pronunciation": "[ʒə detɛst]",
-      "translation": "saya benci..."
+      "word": "je déteste le sport",
+      "pronunciation": "[ʒə detɛst lə spɔʁ]",
+      "translation": "saya benci olahraga"
     },
     {
-      "word": "je n'aime pas...",
-      "pronunciation": "[ʒə nɛm pa]",
-      "translation": "saya tidak menyukai..."
+      "word": "je n'aime pas le lait",
+      "pronunciation": "[ʒə nɛm pa lə lɛ]",
+      "translation": "saya tidak suka susu"
     },
     {
-      "word": "ma couleur préférée est...",
-      "pronunciation": "[ma kulœʁ pʁefeʁe ɛ]",
-      "translation": "warna kesukaan saya adalah..."
+      "word": "Ma couleur préférée est le noir",
+      "pronunciation": "[ma kulœʁ pʁefeʁe ɛ lə nwaʁ]",
+      "translation": "warna kesukaan saya adalah hitam"
     },
     {
-      "word": "mon sport préféré est...",
-      "pronunciation": "[mɔ̃ spɔʁ pʁefeʁe ɛ]",
-      "translation": "olahraga kesukaan saya adalah..."
+      "word": "mon sport préféré est la natation",
+      "pronunciation": "[mɔ̃ spɔʁ pʁefeʁe ɛ la na.ta.sjɔ̃]",
+      "translation": "olahraga kesukaan saya adalah renang"
     },
   ],
   "Mengajukan Pertanyaan Sederhana": [
@@ -134,132 +134,132 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
       "translation": "berapa harganya?"
     },
     {
-      "word": "comment s'appelle... ?",
-      "pronunciation": "[kɔmɑ̃ sapɛl]",
-      "translation": "siapa namanya?"
+      "word": "comment s'appelle ton frère?",
+      "pronunciation": "[kɔmɑ̃ sapɛl tɔ̃ fʁɛʁ]",
+      "translation": "Siapakah nama saudara laki-lakimu?"
     },
     {
-      "word": "où est... ?",
-      "pronunciation": "[u ɛ]",
-      "translation": "dimana...?"
+      "word": "où est la pharmacie?",
+      "pronunciation": "[u ɛ la faʁ.ma.si]",
+      "translation": "dimana apotek?"
     },
     {
-      "word": "où habites-tu ?",
+      "word": "où habites-tu?",
       "pronunciation": "[u abit ty]",
       "translation": "dimana kamu tinggal?"
     },
     {
-      "word": "quel est ton nom ?",
+      "word": "quel est ton nom?",
       "pronunciation": "[kɛl ɛ tɔ̃ nɔ̃]",
       "translation": "siapa namamu?"
     },
     {
-      "word": "quelle heure est-il ?",
+      "word": "quelle heure est-il?",
       "pronunciation": "[kɛl œʁ etil]",
       "translation": "jam berapa sekarang?"
     },
   ],
   "Berbicara Tentang Keluarga": [
     {
-      "word": "j'ai un chien/chat",
-      "pronunciation": "[ʒe œ̃ ʃjɛ̃/ʃa]",
-      "translation": "saya mempunyai anjing/kucing"
+      "word": "J’ai un frère et une soeur",
+      "pronunciation": "[ʒe œ̃ fRɛR e yn sœR]",
+      "translation": "saya punya seorang saudara laki-laki dan saudara perempuan"
     },
     {
-      "word": "j’ai un frère",
-      "pronunciation": "[ʒe œ̃ fʁɛʁ]",
-      "translation": "saya mempunyai saudara laki-laki"
+      "word": "J'ai un chien et un chat",
+      "pronunciation": "[ʒe œ̃ ʃjɛ̃ e œ̃ ʃa]",
+      "translation": "saya mempunyai seekor anjing dan kucing"
     },
     {
-      "word": "ma mère est...",
-      "pronunciation": "[ma mɛʁ ɛ]",
-      "translation": "ibu saya adalah..."
+      "word": "ma mère est Nabila",
+      "pronunciation": "[ma mɛʁ ɛ nabila]",
+      "translation": "ibuku bernama Nabila"
     },
     {
-      "word": "mon père s'appelle...",
-      "pronunciation": "[mɔ̃ pɛʁ sapɛl]",
-      "translation": "ayah saya bernama..."
+      "word": "mon père s'appelle Amry",
+      "pronunciation": "[mɔ̃ pɛʁ sapɛl amri]",
+      "translation": "ayah saya bernama Amry"
     },
   ],
   "Berbicara Tentang Aktifitas Sehari-hari": [
     {
-      "word": "je déjeune à...",
-      "pronunciation": "[ʒə deʒœn a]",
-      "translation": "saya makan siang pada..."
+      "word": "je déjeune à 12.00",
+      "pronunciation": "[ʒə deʒœn a du‿z‿œr]",
+      "translation": "saya makan siang pada jam 12.00"
     },
     {
-      "word": "je me lève à...",
+      "word": "je me lève à six heures",
       "pronunciation": "[ʒə mə lɛv a]",
-      "translation": "saya bangun pada pukul..."
+      "translation": "saya bangun pada jam enam"
     },
     {
-      "word": "je prends le petit déjeuner à...",
-      "pronunciation": "[ʒə pʁɑ̃ lə pəti deʒœne a]",
-      "translation": "saya sarapan pada..."
+      "word": "je prends le petit déjeuner à 09.00",
+      "pronunciation": "[ʒə pʁɑ̃ lə pəti deʒœne a nǝ_v_œr]",
+      "translation": "saya sarapan pada jam 09.00"
     },
     {
-      "word": "je rentre à la maison à...",
-      "pronunciation": "[ʒə ʁɑ̃tʁə a la mɛzɔ̃ a]",
-      "translation": "saya kembali ke rumah pada pukul..."
+      "word": "je rentre à la maison à 17.00",
+      "pronunciation": "[ʒə ʁɑ̃tʁə a la mɛzɔ̃ a di‿sɛt‿œr]",
+      "translation": "saya kembali ke rumah jam 17.00."
     },
     {
-      "word": "je vais à l'école/travail en...",
-      "pronunciation": "[ʒə vɛ a lekɔl/tʁavaj ɑ̃]",
-      "translation": "saya pergi ke sekolah/bekerja dengan..."
+      "word": "je vais à l'école ou au travail en bus",
+      "pronunciation": "[ʒə vɛ a lekɔl u o tʁavaj ɑ̃ bys]",
+      "translation": "saya pergi ke sekolah atau bekerja dengan bus"
     },
   ],
   "Menyatakan Kebutuhan atau Keinginan": [
     {
-      "word": "est-ce que je peux... ?",
-      "pronunciation": "[ɛs kə ʒə pø]",
-      "translation": "apakah saya dapat...?"
+      "word": "est-ce que je peux sortir?",
+      "pronunciation": "[ɛs kə ʒə pø sɔʁ.tiʁ]",
+      "translation": "apakah saya dapat keluar?"
     },
     {
-      "word": "j'ai besoin de...",
-      "pronunciation": "[ʒe bəzwɛ̃ də]",
-      "translation": "saya membutuhkan..."
+      "word": "j'ai besoin de toi",
+      "pronunciation": "[ʒe bəzwɛ̃ də twa]",
+      "translation": "saya membutuhkanmu"
     },
     {
-      "word": "je veux...",
-      "pronunciation": "[ʒə vø]",
-      "translation": "saya ingin..."
+      "word": "je veux travailler",
+      "pronunciation": "[ʒə vø tʁa.va.je]",
+      "translation": "saya ingin bekerja"
     },
     {
-      "word": "je voudrais...",
-      "pronunciation": "[ʒə vudʁɛ]",
-      "translation": "saya ingin..."
+      "word": "je voudrais un café",
+      "pronunciation": "[ʒə vudʁɛ œ̃ ka.fe]",
+      "translation": "saya ingin kopi"
     },
     {
       "word": "pouvez-vous m'aider ?",
       "pronunciation": "[puve vu mede]",
-      "translation": "dapatkah anda membantu saya...?"
+      "translation": "dapatkah anda membantu saya?"
     },
   ],
   "Berbelanja": [
     {
-      "word": "avez-vous... ?",
-      "pronunciation": "[ave vu]",
-      "translation": "apakah anda mempunyai...?"
+      "word": "avez-vous un devoir?",
+      "pronunciation": "[ave vu œ̃ də.vwaʁ]",
+      "translation": "apakah kamu punya PR?"
     },
     {
-      "word": "c'est combien ?",
+      "word": "c'est combien?",
       "pronunciation": "[se kɔ̃bjɛ̃]",
       "translation": "ini berapa?"
     },
     {
       "word": "je cherche",
       "pronunciation": "[ʒə ʃɛʁʃ]",
-      "translation": "saya mencari..."
+      "translation": "saya mencari"
     },
     {
-      "word": "je voudrais acheter...",
-      "pronunciation": "[ʒə vudʁɛ aʃte]",
-      "translation": "saya ingin membeli..."
+      "word": "je voudrais acheter une baguette",
+      "pronunciation": "[ʒə vudʁɛ aʃte yn ba.ɡɛt]",
+      "translation": "saya ingin membeli roti baget"
     },
     {
-      "word": "où puis-je trouver... ?",
-      "pronunciation": "[u pɥiʒ tʁuve]",
-      "translation": "dimana saya bisa menemukan...?"
+      "word": "où puis-je trouver un café?",
+      "pronunciation": "[u pɥiʒ tʁuve œ̃ ka.fe]",
+      "translation": "dimana saya bisa menemukan café?"
     },
   ],
   "Berbicara Tentang Cuaca": [

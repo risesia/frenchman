@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                   Text(
-                    'C\'est Facilens',
+                    'C\'est Facile',
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,

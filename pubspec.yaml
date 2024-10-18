@@ -90,6 +90,11 @@ flutter:
   - assets/examples/trois étudiants.svg
   - assets/examples/petite école.svg
   - assets/examples/grand homme.svg
+  - assets/audio/ʃ.mp3
+  - assets/audio/ŋ.mp3
+  - assets/audio/œ.mp3
+  - assets/audio/ɛ.mp3
+  - assets/audio/ɥ.mp3
 
 flutter_icons:
   android: true
