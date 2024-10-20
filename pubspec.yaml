@@ -26,6 +26,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
   flutter_launcher_icons: ^0.10.0
+  msix: ^3.7.0
 
 
 flutter:
@@ -101,3 +102,11 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/icon/app_icon.png"
+
+msix_config:
+  display_name: C'est Facile
+  publisher_display_name: risesia
+  identity_name: company.suite.flutterapp
+  msix_version: 1.0.0.0
+  logo_path: assets/icon/app_icon.png
+  capabilities: phonology, dictionary

@@ -6,6 +6,7 @@ import 'package:frenchman/pages/kalimat_dasar_list_page.dart';
 import 'package:frenchman/pages/penyeretan_list_page.dart';
 import 'package:frenchman/pages/qr_scanner_page.dart';
 import 'package:provider/provider.dart';
+import 'dart:io'; // Import for platform detection
 
 import 'data/alphabet_data.dart';
 
@@ -149,25 +150,18 @@ Widget build(BuildContext context) {
           });
         },
       );
-      break;
     case 1:
       page = AlphabetListPage(category: 'Consonants');
-      break;
     case 2:
       page = AlphabetListPage(category: 'Semi-Consonants');
-      break;
     case 3:
       page = AlphabetListPage(category: 'Vokal Oral');
-      break;
     case 4:
       page = AlphabetListPage(category: 'Vowels');
-      break;
     case 5:
       page = PenyeretanListPage(); // Show the new Penyeretan Bunyi page
-      break;
     case 6:
       page = KalimatDasarListPage();
-      break;
     default:
       throw UnimplementedError('No widget for index $selectedIndex');
   }
@@ -197,15 +191,17 @@ Widget build(BuildContext context) {
           ),
         ),
         title: Text(getPageTitle()),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.qr_code_scanner),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => QRScannerPage()),
-            ),
-          ),
-        ],
+          actions: [
+            // Only show QR button if the platform is NOT Windows
+            if (!Platform.isWindows)
+              IconButton(
+                icon: Icon(Icons.qr_code_scanner),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QRScannerPage()),
+                ),
+              ),
+          ],
       ),
       drawer: Drawer(
         child: ListView(

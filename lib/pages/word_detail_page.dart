@@ -20,12 +20,32 @@ class WordDetailPage extends StatefulWidget {
 
 class WordDetailPageState extends State<WordDetailPage> {
   late FlutterTts flutterTts;
+  bool isFrenchAvailable = false;
 
   @override
   void initState() {
     super.initState();
     flutterTts = FlutterTts();
-    flutterTts.setLanguage('fr-FR'); // Set to French
+    _setLanguage();
+  }
+
+  Future<void> _setLanguage() async {
+    // Fetch available languages
+    var languages = await flutterTts.getLanguages;
+
+    // Check if 'fr-FR' (French) is available
+    if (languages.contains('fr-FR')) {
+      await flutterTts.setLanguage('fr-FR');
+      isFrenchAvailable = true;
+    } else {
+      // Fall back to English if French isn't available
+      await flutterTts.setLanguage('en-US');
+      isFrenchAvailable = false;
+    }
+
+    // Print the languages for debugging purposes
+    print("Available languages: $languages");
+    print("French available: $isFrenchAvailable");
   }
 
   Future<void> _speak() async {
@@ -106,3 +126,5 @@ class WordDetailPageState extends State<WordDetailPage> {
     );
   }
 }
+
+enum TtsState { playing, stopped }
