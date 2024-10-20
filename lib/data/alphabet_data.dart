@@ -56,7 +56,7 @@ const List<Map<String, String>> consonants = [
   },
   {
     'letter': 'ʃ',
-    'audio': 'ʃ',
+    'audio': 'se',
     'example1': 'chat',
     'ipa1': '[ʃa]',
     'translation1': 'kucing',
@@ -176,17 +176,6 @@ const List<Map<String, String>> consonants = [
     'boldLetters': 'ge,j',
   },
   {
-    'letter': 'ɲ',
-    'audio': 'gn',
-    'example1': 'gagner',
-    'ipa1': '[ɡa.ɲe]',
-    'translation1': 'memenangkan',
-    'example2': 'montagne',
-    'ipa2': '[mɔ̃.taɲ]',
-    'translation2': 'gunung',
-    'boldLetters': 'gn',
-  },
-  {
     'letter': 'ŋ',
     'audio': 'ŋ',
     'example1': 'camping',
@@ -196,6 +185,17 @@ const List<Map<String, String>> consonants = [
     'ipa2': '[ʒo.ɡiŋ]',
     'translation2': 'berlari santai',
     'boldLetters': 'ing',
+  },
+  {
+    'letter': 'ɲ',
+    'audio': 'ɲ',
+    'example1': 'gagner',
+    'ipa1': '[ɡa.ɲe]',
+    'translation1': 'memenangkan',
+    'example2': 'montagne',
+    'ipa2': '[mɔ̃.taɲ]',
+    'translation2': 'gunung',
+    'boldLetters': 'gn',
   },
 ];
 

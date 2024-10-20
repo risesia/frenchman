@@ -198,13 +198,13 @@ Widget build(BuildContext context) {
         ),
         title: Text(getPageTitle()),
         actions: [
-          // IconButton(
-          //   icon: Icon(Icons.qr_code_scanner),
-          //   onPressed: () => Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => QRScannerPage()),
-          //   ),
-          // ),
+          IconButton(
+            icon: Icon(Icons.qr_code_scanner),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => QRScannerPage()),
+            ),
+          ),
         ],
       ),
       drawer: Drawer(

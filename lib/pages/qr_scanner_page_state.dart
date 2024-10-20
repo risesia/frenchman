@@ -12,7 +12,7 @@ class QRScannerPageState extends State<QRScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Scan QR Code')),
+      appBar: AppBar(title: Text('Pindai QR')),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -30,7 +30,7 @@ class QRScannerPageState extends State<QRScannerPage> {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
       if (scanData.code != null) {
-        controller.pauseCamera();
+        controller.pauseCamera(); // Pause the camera for processing
         // Check if the widget is still mounted before using context
         if (mounted) {
           _handleScannedResult(scanData.code!, context);
@@ -39,26 +39,36 @@ class QRScannerPageState extends State<QRScannerPage> {
     });
   }
 
-  void _handleScannedResult(String scannedData, BuildContext context) {
-    String category;
+ void _handleScannedResult(String scannedData, BuildContext context) {
+  String category;
 
-    // Determine the category based on the scanned data (e.g., letters or QR content)
-    if (RegExp(r'[BCDFGHJKLMNPQRSTVWXYZ]').hasMatch(scannedData)) {
-      category = 'Consonants'; // If it's a consonant
-    } else if (RegExp(r'[AEIOUY]').hasMatch(scannedData)) {
-      category = 'Vowels'; // If it's a vowel
-    } else if (RegExp(r'[SemiConsonantPattern]').hasMatch(scannedData)) {
-      category = 'Semi-Consonants'; // Define the pattern for semi-consonants
-    } else {
-      category = 'Vokal Oral'; // You can add more conditions for Vokal Oral
-    }
-
-    // Navigate to the alphabet page with the scanned letter and category
-    context
-        .read<MyAppState>()
-        .navigateToAlphabetPage(context, scannedData, category);
+  // Check for multiple characters in the scanned data
+  if (RegExp(r'^[bdfgkʃlmnpʁstvzʒŋɲ]+$').hasMatch(scannedData)) {
+    category = 'Consonants'; // If it's a consonant
+  } else if (RegExp(r'^[ɑ̃ɛ̃ɔ̃œ̃]+$').hasMatch(scannedData)) {
+    category = 'Vowels'; // If it's a vowel
+  } else if (RegExp(r'^[jwɥ]+$').hasMatch(scannedData)) {
+    category = 'Semi-Consonants'; // Define the pattern for semi-consonants
+  } else if (RegExp(r'^[aɑeɛioɔuyøœə]+$').hasMatch(scannedData)) {
+    category = 'Vokal Oral'; // Define the pattern for semi-consonants
+  } else {
+    // Handle unmatched data
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Tidak ditemukan: $scannedData')),
+    );
+    // Resume the camera for further scanning
+    controller?.resumeCamera(); // Resume the camera to scan again
+    return; // Early return to prevent navigation
   }
 
+  // Navigate to the alphabet page with the scanned word and category
+  context
+      .read<MyAppState>()
+      .navigateToAlphabetPage(context, scannedData, category);
+
+  // Resume the camera for the next scan
+  controller?.resumeCamera(); // Resume the camera after processing
+}
   @override
   void dispose() {
     controller?.dispose();

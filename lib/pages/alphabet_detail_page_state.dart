@@ -12,6 +12,7 @@ class AlphabetDetailPageState extends State<AlphabetDetailPage> {
   final Map<String, String> specificWordAudioFiles = {
     'ʃ': 'audio/ʃ.mp3', // Example entry
     'ŋ': 'audio/ŋ.mp3', // Example entry
+    'ɲ': 'audio/ɲ.mp3', // Example entry
     'œ': 'audio/œ.mp3', // Example entry
     'ɛ': 'audio/ɛ.mp3', // Example entry
     'ɥ': 'audio/ɥ.mp3', // Example entry

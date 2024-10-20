@@ -183,24 +183,24 @@ Map<String, List<Map<String, String>>> categorizedBasicWords = {
   ],
   "Berbicara Tentang Aktifitas Sehari-hari": [
     {
-      "word": "je déjeune à 12.00",
+      "word": "je déjeune à 12 heures",
       "pronunciation": "[ʒə deʒœn a du‿z‿œr]",
-      "translation": "saya makan siang pada jam 12.00"
+      "translation": "saya makan siang pada jam 12"
     },
     {
       "word": "je me lève à six heures",
       "pronunciation": "[ʒə mə lɛv a]",
-      "translation": "saya bangun pada jam enam"
+      "translation": "saya bangun pada jam 6"
     },
     {
-      "word": "je prends le petit déjeuner à 09.00",
+      "word": "je prends le petit déjeuner à 9 heures",
       "pronunciation": "[ʒə pʁɑ̃ lə pəti deʒœne a nǝ_v_œr]",
-      "translation": "saya sarapan pada jam 09.00"
+      "translation": "saya sarapan pada jam 9"
     },
     {
-      "word": "je rentre à la maison à 17.00",
+      "word": "je rentre à la maison à 17 heures",
       "pronunciation": "[ʒə ʁɑ̃tʁə a la mɛzɔ̃ a di‿sɛt‿œr]",
-      "translation": "saya kembali ke rumah jam 17.00."
+      "translation": "saya kembali ke rumah jam 17."
     },
     {
       "word": "je vais à l'école ou au travail en bus",
